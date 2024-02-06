@@ -1,5 +1,7 @@
 package net.dazeful.vanilljabiomes;
 
+import net.dazeful.vanilljabiomes.item.ModItemGroups;
+import net.dazeful.vanilljabiomes.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -11,6 +13,8 @@ public class Vanilljabiomes implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("Hello Fabric world!");
+
+		ModItems.registerModItems();
+		ModItemGroups.registerItemGroups();
 	}
 }
