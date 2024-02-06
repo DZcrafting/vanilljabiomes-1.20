@@ -1,5 +1,6 @@
 package net.dazeful.vanilljabiomes;
 
+import net.dazeful.vanilljabiomes.block.ModBlocks;
 import net.dazeful.vanilljabiomes.item.ModItemGroups;
 import net.dazeful.vanilljabiomes.item.ModItems;
 import net.fabricmc.api.ModInitializer;
@@ -15,6 +16,7 @@ public class Vanilljabiomes implements ModInitializer {
 	public void onInitialize() {
 
 		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
 		ModItemGroups.registerItemGroups();
 	}
 }

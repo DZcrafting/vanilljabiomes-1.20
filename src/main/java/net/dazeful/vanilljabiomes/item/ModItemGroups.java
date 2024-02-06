@@ -1,6 +1,7 @@
 package net.dazeful.vanilljabiomes.item;
 
 import net.dazeful.vanilljabiomes.Vanilljabiomes;
+import net.dazeful.vanilljabiomes.block.ModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 
 import net.minecraft.item.ItemGroup;
@@ -14,8 +15,10 @@ public class ModItemGroups {
     public static final ItemGroup VANILLJA_ITEMGROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(Vanilljabiomes.MOD_ID, "vanillja_item_group"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.vanillja_item_group"))
-                    .icon(() -> new ItemStack(ModItems.ROSE_QUARTZ)).entries((displayContext, entries) -> {
-                        entries.add(ModItems.ROSE_QUARTZ);
+                    .icon(() -> new ItemStack(ModItems.RAW_ROSE_QUARTZ)).entries((displayContext, entries) -> {
+
+                        entries.add(ModItems.RAW_ROSE_QUARTZ);
+                        entries.add(ModBlocks.RAW_ROSE_QUARTZ_BLOCK);
 
                     }).build());
 

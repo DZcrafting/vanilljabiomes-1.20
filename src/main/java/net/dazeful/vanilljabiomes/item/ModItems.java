@@ -11,7 +11,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
-    public static final Item ROSE_QUARTZ = registerItem("rose_quartz", new Item(new FabricItemSettings()));
+    public static final Item RAW_ROSE_QUARTZ = registerItem("raw_rose_quartz", new Item(new FabricItemSettings()));
 
 
 
@@ -20,7 +20,7 @@ public class ModItems {
 
 
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries) {
-        entries.add(ROSE_QUARTZ);
+        entries.add(RAW_ROSE_QUARTZ);
     }
     private static Item registerItem(String name,Item item) {
         return Registry.register(Registries.ITEM, new Identifier(Vanilljabiomes.MOD_ID, name), item);

@@ -1,5 +1,6 @@
 {
-  "item.vanilljabiomes.rose_quartz": "Rose Quartz Fragment",
+  "item.vanilljabiomes.raw_rose_quartz": "Raw Rose Quartz",
+  "block.vanilljabiomes.raw_rose_quartz_block": "Block of Raw Rose Quartz",
 
   "itemgroup.vanillja_item_group": "Vanillja Biomes"
 }
