@@ -19,6 +19,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.RAW_ROSE_QUARTZ);
                         entries.add(ModBlocks.RAW_ROSE_QUARTZ_BLOCK);
+                        entries.add(ModItems.POLISHED_ROSE_QUARTZ);
 
                     }).build());
 

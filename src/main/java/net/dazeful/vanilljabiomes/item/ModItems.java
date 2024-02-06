@@ -11,7 +11,11 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
+
     public static final Item RAW_ROSE_QUARTZ = registerItem("raw_rose_quartz", new Item(new FabricItemSettings()));
+    public static final Item POLISHED_ROSE_QUARTZ = registerItem("polished_rose_quartz", new Item(new FabricItemSettings()));
+    public static final Item RAW_CARMINE_ROSE_QUARTZ = registerItem("raw_carmine_rose_quartz", new Item(new FabricItemSettings()));
+    public static final Item POLISHED_CARMINE_ROSE_QUARTZ = registerItem("polished_carmine_rose_quartz", new Item(new FabricItemSettings()));
 
 
 

@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "vanilljabiomes:block/raw_carmine_rose_quartz_block"
+  }
+}
