@@ -20,7 +20,7 @@ public class ModBlocks {
     public static final Block POLISHED_ROSE_QUARTZ_BLOCK = registerBlock("polished_rose_quartz_block",
             new Block(FabricBlockSettings.create().strength(1.5f).sounds(BlockSoundGroup.AMETHYST_BLOCK).requiresTool().mapColor(DyeColor.PINK)));
     public static final Block ROSE_QUARTZ_SPIRE = registerBlock("rose_quartz_spire",
-                new PointedDripstoneBlock((AbstractBlock.Settings.create().mapColor(MapColor.PINK).solid().instrument(Instrument.BASEDRUM)
+                new CrystalSpireBlock((AbstractBlock.Settings.create().mapColor(MapColor.PINK).solid().instrument(Instrument.BASEDRUM)
                         .nonOpaque().sounds(BlockSoundGroup.AMETHYST_BLOCK).ticksRandomly().strength(1.5f, 1.0f).dynamicBounds().offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never))));
 
     public static final Block RAW_CARMINE_ROSE_QUARTZ_BLOCK = registerBlock("raw_carmine_rose_quartz_block",

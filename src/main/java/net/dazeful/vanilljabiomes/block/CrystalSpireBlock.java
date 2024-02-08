@@ -1,6 +1,3 @@
-/*
- * Decompiled with CFR 0.2.1 (FabricMC 53fa44c9).
- */
 package net.dazeful.vanilljabiomes.block;
 
 import com.google.common.annotations.VisibleForTesting;
@@ -579,4 +576,3 @@ public class CrystalSpireBlock
     record DrippingFluid(BlockPos pos, Fluid fluid, BlockState sourceState) {
     }
 }
-
