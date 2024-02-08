@@ -87,10 +87,6 @@ public class CrystalSpireBlock
         this.setDefaultState((BlockState)((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(VERTICAL_DIRECTION, Direction.UP)).with(THICKNESS, Thickness.TIP)).with(WATERLOGGED, false));
     }
 
-    public CrystalSpireBlock(Settings settings) {
-        super(settings);
-    }
-
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(VERTICAL_DIRECTION, THICKNESS, WATERLOGGED);
