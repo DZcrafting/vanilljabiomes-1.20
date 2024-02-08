@@ -20,6 +20,11 @@ public class ModItemGroups {
                         entries.add(ModItems.RAW_ROSE_QUARTZ);
                         entries.add(ModBlocks.RAW_ROSE_QUARTZ_BLOCK);
                         entries.add(ModItems.POLISHED_ROSE_QUARTZ);
+                        entries.add(ModBlocks.POLISHED_ROSE_QUARTZ_BLOCK);
+                        entries.add(ModItems.RAW_CARMINE_ROSE_QUARTZ);
+                        entries.add(ModBlocks.RAW_CARMINE_ROSE_QUARTZ_BLOCK);
+                        entries.add(ModItems.POLISHED_CARMINE_ROSE_QUARTZ);
+                        entries.add(ModBlocks.TRAVERTINE);
 
                     }).build());
 

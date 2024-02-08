@@ -4,7 +4,9 @@
   "item.vanilljabiomes.polished_rose_quartz": "Polished Rose Quartz",
   "item.vanilljabiomes.polished_carmine_rose_quartz": "Polished Carmine Rose Quartz",
   "block.vanilljabiomes.raw_rose_quartz_block": "Block of Raw Rose Quartz",
+  "block.vanilljabiomes.polished_rose_quartz_block": "Block of Polished Rose Quartz",
   "block.vanilljabiomes.raw_carmine_rose_quartz_block": "Block of Raw Carmine Rose Quartz",
+  "block.vanilljabiomes.travertine": "Travertine",
 
   "itemgroup.vanillja_item_group": "Vanillja Biomes"
 }
