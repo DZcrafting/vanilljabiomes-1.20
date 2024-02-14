@@ -1,7 +1,6 @@
 package net.dazeful.vanilljabiomes.block;
 
 import com.google.common.annotations.VisibleForTesting;
-import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.Thickness;
 import net.minecraft.entity.Entity;
@@ -43,7 +42,6 @@ public class CrystalSpireBlock
         extends Block
         implements LandingBlock,
         Waterloggable {
-    public static final MapCodec<CrystalSpireBlock> CODEC = createCodec(CrystalSpireBlock::new);
     public static final DirectionProperty VERTICAL_DIRECTION = Properties.VERTICAL_DIRECTION;
     public static final EnumProperty<Thickness> THICKNESS = Properties.THICKNESS;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
@@ -56,8 +54,8 @@ public class CrystalSpireBlock
     private static final float LAVA_DRIP_CHANCE = 0.05859375f;
     private static final double field_31213 = 0.6;
     private static final float field_31214 = 1.0f;
-    private static final int field_31215 = 40;
-    private static final int field_31200 = 6;
+    private static final int FALL_HURT_MAX = 40;
+    private static final int MIN_FALL_HURT_AMOUNT = 6;
     private static final float field_31201 = 2.0f;
     private static final int field_31202 = 2;
     private static final float field_33566 = 5.0f;
@@ -74,13 +72,12 @@ public class CrystalSpireBlock
     private static final float MAX_HORIZONTAL_MODEL_OFFSET = 0.125f;
     private static final VoxelShape DRIP_COLLISION_SHAPE = createCuboidShape(6.0, 0.0, 6.0, 10.0, 16.0, 10.0);
 
-    public MapCodec<CrystalSpireBlock> getCodec() {
-        return CODEC;
-    }
-
-    public CrystalSpireBlock(Settings settings) {
+    public CrystalSpireBlock(AbstractBlock.Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(VERTICAL_DIRECTION, Direction.UP).with(THICKNESS, Thickness.TIP).with(WATERLOGGED, false));
+        this.setDefaultState(this.stateManager.getDefaultState()
+                .with(VERTICAL_DIRECTION, Direction.UP)
+                .with(THICKNESS, Thickness.TIP)
+                .with(WATERLOGGED, false));
     }
 
     @Override
@@ -89,42 +86,42 @@ public class CrystalSpireBlock
     }
 
     @Override
-    protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+    @SuppressWarnings("deprecation")
+    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         return this.canPlaceAtWithDirection(world, pos, state.get(VERTICAL_DIRECTION));
     }
 
     @Override
-    protected BlockState getStateForNeighborUpdate(BlockState state, Direction neighborDirection, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+    @SuppressWarnings("deprecation")
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (state.get(WATERLOGGED)) {
             world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
-        if (neighborDirection != Direction.UP && neighborDirection != Direction.DOWN) {
+        if (direction != Direction.UP && direction != Direction.DOWN) {
             return state;
         }
-        Direction direction = state.get(VERTICAL_DIRECTION);
-        if (direction == Direction.DOWN && world.getBlockTickScheduler().isQueued(pos, this)) {
+        Direction direction2 = state.get(VERTICAL_DIRECTION);
+        if (direction2 == Direction.DOWN && world.getBlockTickScheduler().isQueued(pos, this)) {
             return state;
         }
-        if (neighborDirection == direction.getOpposite() && !this.canPlaceAt(state, world, pos)) {
-            if (direction == Direction.DOWN) {
+        if (direction == direction2.getOpposite() && !this.canPlaceAt(state, world, pos)) {
+            if (direction2 == Direction.DOWN) {
                 world.scheduleBlockTick(pos, this, 2);
             } else {
                 world.scheduleBlockTick(pos, this, 1);
             }
             return state;
         }
-        boolean thicknessIsTipMerge = state.get(THICKNESS) == Thickness.TIP_MERGE;
-        Thickness thickness = this.getThickness(world, pos, direction, thicknessIsTipMerge);
+        boolean bl = state.get(THICKNESS) == Thickness.TIP_MERGE;
+        Thickness thickness = this.getThickness(world, pos, direction2, bl);
         return state.with(THICKNESS, thickness);
     }
 
     @Override
-    protected void onProjectileHit(World world, BlockState state, BlockHitResult hit, ProjectileEntity projectile) {
-        if (world.isClient) {
-            return;
-        }
+    @SuppressWarnings("deprecation")
+    public void onProjectileHit(World world, BlockState state, BlockHitResult hit, ProjectileEntity projectile) {
         BlockPos blockPos = hit.getBlockPos();
-        if (projectile.canModifyAt(world, blockPos) && projectile.canBreakBlocks(world) && projectile instanceof TridentEntity && projectile.getVelocity().length() > 0.6) {
+        if (!world.isClient && projectile.canModifyAt(world, blockPos) && projectile instanceof TridentEntity && projectile.getVelocity().length() > field_31213) {
             world.breakBlock(blockPos, true);
         }
     }
@@ -144,14 +141,15 @@ public class CrystalSpireBlock
             return;
         }
         float f = random.nextFloat();
-        if (f > 0.12f) {
+        if (f > field_31209) {
             return;
         }
-        this.getFluid(world, pos, state).filter(fluid -> f < 0.02f || isFluidStill(fluid.fluid)).ifPresent(fluid -> createParticle(world, pos, state, fluid.fluid));
+        this.getFluid(world, pos, state).filter(fluid -> f < field_31208 || isFluidLiquid(fluid.fluid)).ifPresent(fluid -> this.createParticle(world, pos, state, fluid.fluid));
     }
 
     @Override
-    protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    @SuppressWarnings("deprecation")
+    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (this.isPointingUp(state) && !this.canPlaceAt(state, world, pos)) {
             world.breakBlock(pos, true);
         } else {
@@ -160,7 +158,8 @@ public class CrystalSpireBlock
     }
 
     @Override
-    protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    @SuppressWarnings("deprecation")
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         this.dripTick(state, world, pos, random.nextFloat());
         if (random.nextFloat() < field_33567 && this.isHeldByPointedDripstone(state, world, pos)) {
             this.tryGrow(state, world, pos, random);
@@ -170,7 +169,7 @@ public class CrystalSpireBlock
     @VisibleForTesting
     public void dripTick(BlockState state, ServerWorld world, BlockPos pos, float dripChance) {
         float f;
-        if (dripChance > 0.17578125f) {
+        if (dripChance > WATER_DRIP_CHANCE && dripChance > LAVA_DRIP_CHANCE) {
             return;
         }
         if (!this.isHeldByPointedDripstone(state, world, pos)) {
@@ -207,9 +206,9 @@ public class CrystalSpireBlock
     @Override
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        BlockPos blockPos;
         World worldAccess = ctx.getWorld();
-        Direction directionToPlaceAt = this.getDirectionToPlaceAt(worldAccess, blockPos = ctx.getBlockPos(), ctx.getVerticalPlayerLookDirection().getOpposite());
+        BlockPos blockPos = ctx.getBlockPos();
+        Direction directionToPlaceAt = this.getDirectionToPlaceAt(worldAccess, blockPos, ctx.getVerticalPlayerLookDirection().getOpposite());
         if (directionToPlaceAt == null) {
             return null;
         }
@@ -225,7 +224,8 @@ public class CrystalSpireBlock
     }
 
     @Override
-    protected FluidState getFluidState(BlockState state) {
+    @SuppressWarnings("deprecation")
+    public FluidState getFluidState(BlockState state) {
         if (state.get(WATERLOGGED)) {
             return Fluids.WATER.getStill(false);
         }
@@ -233,31 +233,39 @@ public class CrystalSpireBlock
     }
 
     @Override
-    protected VoxelShape getCullingShape(BlockState state, BlockView world, BlockPos pos) {
+    @SuppressWarnings("deprecation")
+    public VoxelShape getCullingShape(BlockState state, BlockView world, BlockPos pos) {
         return VoxelShapes.empty();
     }
 
     @Override
-    protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    @SuppressWarnings("deprecation")
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         Thickness thickness = state.get(THICKNESS);
-        VoxelShape voxelShape = switch (thickness) {
-            case TIP_MERGE -> TIP_MERGE_SHAPE;
-            case TIP -> this.isPointingDown(state) ? DOWN_TIP_SHAPE : UP_TIP_SHAPE;
-            case FRUSTUM -> BASE_SHAPE;
-            case MIDDLE -> FRUSTUM_SHAPE;
-            case BASE -> MIDDLE_SHAPE;
-        };
-        Vec3d modelOffset = state.getModelOffset(world, pos);
-        return voxelShape.offset(modelOffset.x, 0.0, modelOffset.z);
+        VoxelShape voxelShape =
+                thickness == Thickness.TIP_MERGE ?
+                        TIP_MERGE_SHAPE :
+                        (thickness == Thickness.TIP ?
+                                (state.get(VERTICAL_DIRECTION) == Direction.DOWN ?
+                                        DOWN_TIP_SHAPE :
+                                        UP_TIP_SHAPE) :
+                                (thickness == Thickness.FRUSTUM ?
+                                        BASE_SHAPE :
+                                        (thickness == Thickness.MIDDLE ?
+                                                FRUSTUM_SHAPE :
+                                                MIDDLE_SHAPE)));
+        Vec3d vec3d = state.getModelOffset(world, pos);
+        return voxelShape.offset(vec3d.x, 0.0, vec3d.z);
     }
 
     @Override
-    protected boolean isShapeFullCube(BlockState state, BlockView world, BlockPos pos) {
+    @SuppressWarnings("deprecation")
+    public boolean isShapeFullCube(BlockState state, BlockView world, BlockPos pos) {
         return false;
     }
 
     @Override
-    protected float getMaxHorizontalModelOffset() {
+    public float getMaxHorizontalModelOffset() {
         return MAX_HORIZONTAL_MODEL_OFFSET;
     }
 
@@ -279,8 +287,8 @@ public class CrystalSpireBlock
         while (this.isPointingDown(blockState)) {
             FallingBlockEntity fallingBlockEntity = FallingBlockEntity.spawnFromBlock(world, mutable, blockState);
             if (this.isTip(blockState, true)) {
-                int fallHurtAmount = Math.max(1 + pos.getY() - mutable.getY(), 6);
-                fallingBlockEntity.setHurtEntities(fallHurtAmount, 40);
+                int fallHurtAmount = Math.max(1 + pos.getY() - mutable.getY(), MIN_FALL_HURT_AMOUNT);
+                fallingBlockEntity.setHurtEntities(fallHurtAmount, FALL_HURT_MAX);
                 break;
             }
             mutable.move(Direction.DOWN);
@@ -290,22 +298,22 @@ public class CrystalSpireBlock
 
     @VisibleForTesting
     public void tryGrow(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        BlockState blockStateAbove = world.getBlockState(pos.up(1));
-        if (!this.canGrow(blockStateAbove, world.getBlockState(pos.up(2)))) {
+        BlockState blockAbove = world.getBlockState(pos.up(1));
+        if (!canGrow(blockAbove, world.getBlockState(pos.up(2)))) {
             return;
         }
-        BlockPos tipPos = this.getTipPos(state, world, pos, MAX_STALACTITE_GROWTH, false);
-        if (tipPos == null) {
+        BlockPos blockPos = this.getTipPos(state, world, pos, MAX_STALACTITE_GROWTH, false);
+        if (blockPos == null) {
             return;
         }
-        BlockState tipBlockState = world.getBlockState(tipPos);
-        if (!this.canDrip(tipBlockState) || !this.canGrow(tipBlockState, world, tipPos)) {
+        BlockState blockState3 = world.getBlockState(blockPos);
+        if (!this.canDrip(blockState3) || !this.canGrow(blockState3, world, blockPos)) {
             return;
         }
         if (random.nextBoolean()) {
-            this.tryGrow(world, tipPos, Direction.DOWN);
+            this.tryGrow(world, blockPos, Direction.DOWN);
         } else {
-            this.tryGrowStalagmite(world, tipPos);
+            this.tryGrowStalagmite(world, blockPos);
         }
     }
 
@@ -331,12 +339,12 @@ public class CrystalSpireBlock
     }
 
     private void tryGrow(ServerWorld world, BlockPos pos, Direction direction) {
-        BlockPos posToGrowTo = pos.offset(direction);
-        BlockState stateInPosToGrowTo = world.getBlockState(posToGrowTo);
-        if (this.isTip(stateInPosToGrowTo, direction.getOpposite())) {
-            this.growMerged(stateInPosToGrowTo, world, posToGrowTo);
-        } else if (stateInPosToGrowTo.isAir() || stateInPosToGrowTo.isOf(Blocks.WATER)) {
-            this.place(world, posToGrowTo, direction, Thickness.TIP);
+        BlockPos blockPos = pos.offset(direction);
+        BlockState blockState = world.getBlockState(blockPos);
+        if (this.isTip(blockState, direction.getOpposite())) {
+            this.growMerged(blockState, world, blockPos);
+        } else if (blockState.isAir() || blockState.isOf(Blocks.WATER)) {
+            this.place(world, blockPos, direction, Thickness.TIP);
         }
     }
 
@@ -345,7 +353,7 @@ public class CrystalSpireBlock
                 .with(VERTICAL_DIRECTION, direction)
                 .with(THICKNESS, thickness)
                 .with(WATERLOGGED, world.getFluidState(pos).getFluid() == Fluids.WATER);
-        world.setBlockState(pos, blockState, 3);
+        world.setBlockState(pos, blockState, Block.NOTIFY_ALL);
     }
 
     private void growMerged(BlockState state, WorldAccess world, BlockPos pos) {
@@ -362,15 +370,19 @@ public class CrystalSpireBlock
         this.place(world, blockPos, Direction.UP, Thickness.TIP_MERGE);
     }
 
-    private static void createParticle(World world, BlockPos pos, BlockState state, Fluid fluid) {
-        Vec3d modelOffset = state.getModelOffset(world, pos);
+    public  void createParticle(World world, BlockPos pos, BlockState state) {
+        this.getFluid(world, pos, state).ifPresent(fluid -> this.createParticle(world, pos, state, fluid.fluid));
+    }
+
+    private  void createParticle(World world, BlockPos pos, BlockState state, Fluid fluid) {
+        Vec3d vec3d = state.getModelOffset(world, pos);
         double d = 0.0625;
-        double particleX = pos.getX() + 0.5 + modelOffset.x;
-        double particleY = pos.getY() + 1 - field_31203 - d;
-        double particleZ = pos.getZ() + 0.5 + modelOffset.z;
-        Fluid dripFluid = getDripFluid(world, fluid);
-        DefaultParticleType particleEffect = dripFluid.isIn(FluidTags.LAVA) ? ParticleTypes.DRIPPING_DRIPSTONE_LAVA : ParticleTypes.DRIPPING_DRIPSTONE_WATER;
-        world.addParticle(particleEffect, particleX, particleY, particleZ, 0.0, 0.0, 0.0);
+        double e = pos.getX() + 0.5 + vec3d.x;
+        double f = ((pos.getY() + 1) - field_31203) - d;
+        double g = pos.getZ() + 0.5 + vec3d.z;
+        Fluid fluid2 = getDripFluid(world, fluid);
+        DefaultParticleType particleEffect = fluid2.isIn(FluidTags.LAVA) ? ParticleTypes.DRIPPING_DRIPSTONE_LAVA : ParticleTypes.DRIPPING_DRIPSTONE_WATER;
+        world.addParticle(particleEffect, e, f, g, 0.0, 0.0, 0.0);
     }
 
     @Nullable
@@ -379,8 +391,8 @@ public class CrystalSpireBlock
             return pos;
         }
         Direction direction = state.get(VERTICAL_DIRECTION);
-        BiPredicate<BlockPos, BlockState> continuePredicate = (posx, statex) -> statex.isOf(this) && statex.get(VERTICAL_DIRECTION) == direction;
-        return searchInDirection(world, pos, direction.getDirection(), continuePredicate, statex -> this.isTip(statex, allowMerged), range).orElse(null);
+        BiPredicate<BlockPos, BlockState> biPredicate = (posx, statex) -> statex.isOf(this) && statex.get(VERTICAL_DIRECTION) == direction;
+        return searchInDirection(world, pos, direction.getDirection(), biPredicate, statex -> this.isTip(statex, allowMerged), range).orElse(null);
     }
 
     @Nullable
@@ -399,13 +411,13 @@ public class CrystalSpireBlock
     private Thickness getThickness(WorldView world, BlockPos pos, Direction direction, boolean tryMerge) {
         Direction direction2 = direction.getOpposite();
         BlockState blockState = world.getBlockState(pos.offset(direction));
-        if (this.isCustomPointedDripstoneFacingDirection(blockState, direction2)) {
+        if (this.isPointedDripstoneFacingDirection(blockState, direction2)) {
             if (tryMerge || blockState.get(THICKNESS) == Thickness.TIP_MERGE) {
                 return Thickness.TIP_MERGE;
             }
             return Thickness.TIP;
         }
-        if (!this.isCustomPointedDripstoneFacingDirection(blockState, direction)) {
+        if (!this.isPointedDripstoneFacingDirection(blockState, direction)) {
             return Thickness.TIP;
         }
         Thickness thickness = blockState.get(THICKNESS);
@@ -413,7 +425,7 @@ public class CrystalSpireBlock
             return Thickness.FRUSTUM;
         }
         BlockState blockState2 = world.getBlockState(pos.offset(direction2));
-        if (!this.isCustomPointedDripstoneFacingDirection(blockState2, direction)) {
+        if (!this.isPointedDripstoneFacingDirection(blockState2, direction)) {
             return Thickness.BASE;
         }
         return Thickness.MIDDLE;
@@ -425,27 +437,27 @@ public class CrystalSpireBlock
 
     private boolean canGrow(BlockState state, ServerWorld world, BlockPos pos) {
         Direction direction = state.get(VERTICAL_DIRECTION);
-        BlockPos posToGrowTo = pos.offset(direction);
-        BlockState stateInPosToGrowTo = world.getBlockState(posToGrowTo);
-        if (!stateInPosToGrowTo.getFluidState().isEmpty()) {
+        BlockPos blockPos = pos.offset(direction);
+        BlockState blockState = world.getBlockState(blockPos);
+        if (!blockState.getFluidState().isEmpty()) {
             return false;
         }
-        if (stateInPosToGrowTo.isAir()) {
+        if (blockState.isAir()) {
             return true;
         }
-        return this.isTip(stateInPosToGrowTo, direction.getOpposite());
+        return this.isTip(blockState, direction.getOpposite());
     }
 
     private Optional<BlockPos> getSupportingPos(World world, BlockPos pos, BlockState state, int range) {
         Direction direction = state.get(VERTICAL_DIRECTION);
-        BiPredicate<BlockPos, BlockState> continuePredicate = (posx, statex) -> statex.isOf(this) && statex.get(VERTICAL_DIRECTION) == direction;
-        return searchInDirection(world, pos, direction.getOpposite().getDirection(), continuePredicate, statex -> !statex.isOf(this), range);
+        BiPredicate<BlockPos, BlockState> biPredicate = (posx, statex) -> statex.isOf(this) && statex.get(VERTICAL_DIRECTION) == direction;
+        return searchInDirection(world, pos, direction.getOpposite().getDirection(), biPredicate, statex -> !statex.isOf(this), range);
     }
 
     private boolean canPlaceAtWithDirection(WorldView world, BlockPos pos, Direction direction) {
         BlockPos blockPos = pos.offset(direction.getOpposite());
         BlockState blockState = world.getBlockState(blockPos);
-        return blockState.isSideSolidFullSquare(world, blockPos, direction) || this.isCustomPointedDripstoneFacingDirection(blockState, direction);
+        return blockState.isSideSolidFullSquare(world, blockPos, direction) || this.isPointedDripstoneFacingDirection(blockState, direction);
     }
 
     private boolean isTip(BlockState state, boolean allowMerged) {
@@ -461,11 +473,11 @@ public class CrystalSpireBlock
     }
 
     private boolean isPointingDown(BlockState state) {
-        return this.isCustomPointedDripstoneFacingDirection(state, Direction.DOWN);
+        return this.isPointedDripstoneFacingDirection(state, Direction.DOWN);
     }
 
     private boolean isPointingUp(BlockState state) {
-        return this.isCustomPointedDripstoneFacingDirection(state, Direction.UP);
+        return this.isPointedDripstoneFacingDirection(state, Direction.UP);
     }
 
     private boolean isHeldByPointedDripstone(BlockState state, WorldView world, BlockPos pos) {
@@ -473,12 +485,23 @@ public class CrystalSpireBlock
     }
 
     @Override
-    protected boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    @SuppressWarnings("deprecation")
+    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
         return false;
     }
 
-    private boolean isCustomPointedDripstoneFacingDirection(BlockState state, Direction direction) {
+    private boolean isPointedDripstoneFacingDirection(BlockState state, Direction direction) {
         return state.isOf(this) && state.get(VERTICAL_DIRECTION) == direction;
+    }
+
+    @Nullable
+    public BlockPos getDripPos(World world, BlockPos pos) {
+        BiPredicate<BlockPos, BlockState> biPredicate = (posx, state) -> canDripThrough(world, posx, state);
+        return searchInDirection(world, pos, Direction.UP.getDirection(), biPredicate, this::canDrip, 11).orElse(null);
+    }
+
+    public Fluid getDripFluid(ServerWorld world, BlockPos pos) {
+        return this.getFluid(world, pos, world.getBlockState(pos)).map(fluid -> fluid.fluid).filter(CrystalSpireBlock::isFluidLiquid).orElse(Fluids.EMPTY);
     }
 
     private Optional<DrippingFluid> getFluid(World world, BlockPos pos, BlockState state) {
@@ -493,11 +516,11 @@ public class CrystalSpireBlock
         });
     }
 
-    private static boolean isFluidStill(Fluid fluid) {
+    private static boolean isFluidLiquid(Fluid fluid) {
         return fluid == Fluids.LAVA || fluid == Fluids.WATER;
     }
 
-    private boolean canGrow(BlockState dripstoneBlockState, BlockState waterState) {
+    private static boolean canGrow(BlockState dripstoneBlockState, BlockState waterState) {
         return dripstoneBlockState.isOf(Blocks.DRIPSTONE_BLOCK) && waterState.isOf(Blocks.WATER) && waterState.getFluidState().isStill();
     }
 
@@ -534,10 +557,11 @@ public class CrystalSpireBlock
         if (!state.getFluidState().isEmpty()) {
             return false;
         }
-        VoxelShape collisionShape = state.getCollisionShape(world, pos);
-        return !VoxelShapes.matchesAnywhere(DRIP_COLLISION_SHAPE, collisionShape, BooleanBiFunction.AND);
+        VoxelShape voxelShape = state.getCollisionShape(world, pos);
+        return !VoxelShapes.matchesAnywhere(DRIP_COLLISION_SHAPE, voxelShape, BooleanBiFunction.AND);
     }
 
     record DrippingFluid(BlockPos pos, Fluid fluid, BlockState sourceState) {
     }
 }
+
