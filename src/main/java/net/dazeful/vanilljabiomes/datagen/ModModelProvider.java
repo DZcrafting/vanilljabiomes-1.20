@@ -39,6 +39,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_ROSE_QUARTZ_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.POLISHED_ROSE_QUARTZ_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_CARMINE_ROSE_QUARTZ_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_PALE_ROSE_QUARTZ_BLOCK);
         blockStateModelGenerator.registerSingleton(ModBlocks.TRAVERTINE, TexturedModel.CUBE_BOTTOM_TOP);
         registerCustomPointedDripstone(blockStateModelGenerator, ModBlocks.ROSE_QUARTZ_SPIRE);
 
@@ -52,7 +53,9 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.RAW_ROSE_QUARTZ, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_CARMINE_ROSE_QUARTZ, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RAW_PALE_ROSE_QUARTZ, Models.GENERATED);
         itemModelGenerator.register(ModItems.POLISHED_ROSE_QUARTZ, Models.GENERATED);
         itemModelGenerator.register(ModItems.POLISHED_CARMINE_ROSE_QUARTZ, Models.GENERATED);
+        itemModelGenerator.register(ModItems.POLISHED_PALE_ROSE_QUARTZ, Models.GENERATED);
     }
 }
