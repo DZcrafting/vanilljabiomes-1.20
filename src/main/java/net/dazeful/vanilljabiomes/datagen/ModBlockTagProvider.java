@@ -18,8 +18,16 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.RAW_ROSE_QUARTZ_BLOCK)
                 .add(ModBlocks.POLISHED_ROSE_QUARTZ_BLOCK)
+                .add(ModBlocks.ROSE_QUARTZ_BRICKS)
                 .add(ModBlocks.RAW_CARMINE_ROSE_QUARTZ_BLOCK)
+                .add(ModBlocks.POLISHED_CARMINE_ROSE_QUARTZ_BLOCK)
+                .add(ModBlocks.CARMINE_ROSE_QUARTZ_BRICKS)
+                .add(ModBlocks.RAW_PALE_ROSE_QUARTZ_BLOCK)
+                .add(ModBlocks.POLISHED_PALE_ROSE_QUARTZ_BLOCK)
+                .add(ModBlocks.PALE_ROSE_QUARTZ_BRICKS)
                 .add(ModBlocks.ROSE_QUARTZ_SPIRE)
+                .add(ModBlocks.CARMINE_ROSE_QUARTZ_SPIRE)
+                .add(ModBlocks.PALE_ROSE_QUARTZ_SPIRE)
                 .add(ModBlocks.TRAVERTINE);
 
     }

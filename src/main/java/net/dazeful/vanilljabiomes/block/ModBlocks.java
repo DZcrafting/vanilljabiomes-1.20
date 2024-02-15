@@ -19,14 +19,32 @@ public class ModBlocks {
             new Block(FabricBlockSettings.create().strength(1.5f).sounds(BlockSoundGroup.AMETHYST_BLOCK).requiresTool().mapColor(MapColor.DULL_PINK)));
     public static final Block POLISHED_ROSE_QUARTZ_BLOCK = registerBlock("polished_rose_quartz_block",
             new Block(FabricBlockSettings.create().strength(1.5f).sounds(BlockSoundGroup.AMETHYST_BLOCK).requiresTool().mapColor(MapColor.DULL_PINK)));
+    public static final Block ROSE_QUARTZ_BRICKS = registerBlock("rose_quartz_bricks",
+            new Block(FabricBlockSettings.create().strength(1.5f).sounds(BlockSoundGroup.AMETHYST_BLOCK).requiresTool().mapColor(MapColor.DULL_PINK)));
     public static final Block ROSE_QUARTZ_SPIRE = registerBlock("rose_quartz_spire",
                 new CrystalSpireBlock((AbstractBlock.Settings.create().mapColor(MapColor.DULL_PINK).solid().instrument(Instrument.BASEDRUM)
                         .nonOpaque().sounds(BlockSoundGroup.AMETHYST_BLOCK).ticksRandomly().strength(1.5f, 1.0f).dynamicBounds().offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never))));
 
     public static final Block RAW_CARMINE_ROSE_QUARTZ_BLOCK = registerBlock("raw_carmine_rose_quartz_block",
             new Block(FabricBlockSettings.create().strength(1.5f).sounds(BlockSoundGroup.AMETHYST_BLOCK).requiresTool().mapColor(MapColor.RED)));
+    public static final Block POLISHED_CARMINE_ROSE_QUARTZ_BLOCK = registerBlock("polished_carmine_rose_quartz_block",
+            new Block(FabricBlockSettings.create().strength(1.5f).sounds(BlockSoundGroup.AMETHYST_BLOCK).requiresTool().mapColor(MapColor.RED)));
+    public static final Block CARMINE_ROSE_QUARTZ_BRICKS = registerBlock("carmine_rose_quartz_bricks",
+            new Block(FabricBlockSettings.create().strength(1.5f).sounds(BlockSoundGroup.AMETHYST_BLOCK).requiresTool().mapColor(MapColor.RED)));
+    public static final Block CARMINE_ROSE_QUARTZ_SPIRE = registerBlock("carmine_rose_quartz_spire",
+            new CrystalSpireBlock((AbstractBlock.Settings.create().mapColor(MapColor.RED).solid().instrument(Instrument.BASEDRUM)
+                    .nonOpaque().sounds(BlockSoundGroup.AMETHYST_BLOCK).ticksRandomly().strength(1.5f, 1.0f).dynamicBounds().offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never))));
+
     public static final Block RAW_PALE_ROSE_QUARTZ_BLOCK = registerBlock("raw_pale_rose_quartz_block",
             new Block(FabricBlockSettings.create().strength(1.5f).sounds(BlockSoundGroup.AMETHYST_BLOCK).requiresTool().mapColor(MapColor.PINK)));
+    public static final Block POLISHED_PALE_ROSE_QUARTZ_BLOCK = registerBlock("polished_pale_rose_quartz_block",
+            new Block(FabricBlockSettings.create().strength(1.5f).sounds(BlockSoundGroup.AMETHYST_BLOCK).requiresTool().mapColor(MapColor.PINK)));
+    public static final Block PALE_ROSE_QUARTZ_BRICKS = registerBlock("pale_rose_quartz_bricks",
+            new Block(FabricBlockSettings.create().strength(1.5f).sounds(BlockSoundGroup.AMETHYST_BLOCK).requiresTool().mapColor(MapColor.PINK)));
+    public static final Block PALE_ROSE_QUARTZ_SPIRE = registerBlock("pale_rose_quartz_spire",
+            new CrystalSpireBlock((AbstractBlock.Settings.create().mapColor(MapColor.PINK).solid().instrument(Instrument.BASEDRUM)
+                    .nonOpaque().sounds(BlockSoundGroup.AMETHYST_BLOCK).ticksRandomly().strength(1.5f, 1.0f).dynamicBounds().offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never))));
+
     public static final Block TRAVERTINE = registerBlock("travertine",
             new Block(FabricBlockSettings.create().strength(1.0f, 4).sounds(BlockSoundGroup.STONE).requiresTool().mapColor(MapColor.PALE_YELLOW)));
     public static final Block QUARTZITE = registerBlock("quartzite",

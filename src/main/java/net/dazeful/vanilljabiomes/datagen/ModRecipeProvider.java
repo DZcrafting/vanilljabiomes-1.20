@@ -22,6 +22,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_ROSE_QUARTZ_BLOCK, ModItems.RAW_ROSE_QUARTZ);
         offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_ROSE_QUARTZ_BLOCK, ModItems.POLISHED_ROSE_QUARTZ);
         offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_CARMINE_ROSE_QUARTZ_BLOCK, ModItems.RAW_CARMINE_ROSE_QUARTZ);
+        
+        offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_PALE_ROSE_QUARTZ_BLOCK, ModItems.RAW_PALE_ROSE_QUARTZ);
 
         offerSmelting(exporter, SMELTRESULT_POLISHEDROSEQUARTZ, RecipeCategory.MISC, ModItems.POLISHED_ROSE_QUARTZ,
                 0.7f, 200, "polishedrosequartz_result");
