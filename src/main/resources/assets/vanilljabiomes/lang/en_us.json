@@ -17,6 +17,12 @@
   "block.vanilljabiomes.rose_quartz_spire": "Rose Quartz Spire",
   "block.vanilljabiomes.carmine_rose_quartz_spire": "Carmine Rose Quartz Spire",
   "block.vanilljabiomes.pale_rose_quartz_spire": "Pale Rose Quartz Spire",
+  "block.vanilljabiomes.polished_rose_quartz_stairs": "Polished Rose Quartz Stairs",
+  "block.vanilljabiomes.polished_rose_quartz_slab": "Polished Rose Quartz Slab",
+  "block.vanilljabiomes.polished_carmine_rose_quartz_stairs": "Polished Carmine Rose Quartz Stairs",
+  "block.vanilljabiomes.polished_carmine_rose_quartz_slab": "Polished Carmine Rose Quartz Slab",
+  "block.vanilljabiomes.polished_pale_rose_quartz_stairs": "Polished Pale Rose Quartz Stairs",
+  "block.vanilljabiomes.polished_pale_rose_quartz_slab": "Polished Pale Rose Quartz Slab",
   "block.vanilljabiomes.travertine": "Travertine",
 
   "itemgroup.vanillja_item_group": "Vanillja Biomes"

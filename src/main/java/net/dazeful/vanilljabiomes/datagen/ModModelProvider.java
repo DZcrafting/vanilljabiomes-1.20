@@ -37,18 +37,27 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_ROSE_QUARTZ_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.POLISHED_ROSE_QUARTZ_BLOCK);
+        BlockStateModelGenerator.BlockTexturePool polished_rosequartz_pool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.POLISHED_ROSE_QUARTZ_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ROSE_QUARTZ_BRICKS);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_CARMINE_ROSE_QUARTZ_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.POLISHED_CARMINE_ROSE_QUARTZ_BLOCK);
+        BlockStateModelGenerator.BlockTexturePool polished_carminerosequartz_pool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.POLISHED_CARMINE_ROSE_QUARTZ_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CARMINE_ROSE_QUARTZ_BRICKS);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_PALE_ROSE_QUARTZ_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.POLISHED_PALE_ROSE_QUARTZ_BLOCK);
+        BlockStateModelGenerator.BlockTexturePool polished_palerosequartz_pool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.POLISHED_PALE_ROSE_QUARTZ_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PALE_ROSE_QUARTZ_BRICKS);
-        blockStateModelGenerator.registerSingleton(ModBlocks.TRAVERTINE, TexturedModel.CUBE_BOTTOM_TOP);
         registerCustomPointedDripstone(blockStateModelGenerator, ModBlocks.ROSE_QUARTZ_SPIRE);
         registerCustomPointedDripstone(blockStateModelGenerator, ModBlocks.CARMINE_ROSE_QUARTZ_SPIRE);
         registerCustomPointedDripstone(blockStateModelGenerator, ModBlocks.PALE_ROSE_QUARTZ_SPIRE);
+        polished_rosequartz_pool.stairs(ModBlocks.POLISHED_ROSE_QUARTZ_STAIRS);
+        polished_rosequartz_pool.slab(ModBlocks.POLISHED_ROSE_QUARTZ_SLAB);
+        polished_carminerosequartz_pool.stairs(ModBlocks.POLISHED_CARMINE_ROSE_QUARTZ_STAIRS);
+        polished_carminerosequartz_pool.slab(ModBlocks.POLISHED_CARMINE_ROSE_QUARTZ_SLAB);
+        polished_palerosequartz_pool.stairs(ModBlocks.POLISHED_PALE_ROSE_QUARTZ_STAIRS);
+        polished_palerosequartz_pool.slab(ModBlocks.POLISHED_PALE_ROSE_QUARTZ_SLAB);
+
+        blockStateModelGenerator.registerSingleton(ModBlocks.TRAVERTINE, TexturedModel.CUBE_BOTTOM_TOP);
+
+
 
 
     }

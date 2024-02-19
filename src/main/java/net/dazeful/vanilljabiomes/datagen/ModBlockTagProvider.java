@@ -30,5 +30,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.PALE_ROSE_QUARTZ_SPIRE)
                 .add(ModBlocks.TRAVERTINE);
 
+        getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL);
+
+
     }
 }

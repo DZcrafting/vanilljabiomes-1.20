@@ -18,23 +18,32 @@ public class ModItemGroups {
                     .icon(() -> new ItemStack(ModItems.RAW_ROSE_QUARTZ)).entries((displayContext, entries) -> {
 
                         entries.add(ModItems.RAW_ROSE_QUARTZ);
-                        entries.add(ModItems.RAW_CARMINE_ROSE_QUARTZ);
-                        entries.add(ModItems.RAW_PALE_ROSE_QUARTZ);
                         entries.add(ModItems.POLISHED_ROSE_QUARTZ);
-                        entries.add(ModItems.POLISHED_CARMINE_ROSE_QUARTZ);
-                        entries.add(ModItems.POLISHED_PALE_ROSE_QUARTZ);
-                        entries.add(ModBlocks.RAW_ROSE_QUARTZ_BLOCK);
-                        entries.add(ModBlocks.RAW_CARMINE_ROSE_QUARTZ_BLOCK);
-                        entries.add(ModBlocks.RAW_PALE_ROSE_QUARTZ_BLOCK);
                         entries.add(ModBlocks.ROSE_QUARTZ_SPIRE);
-                        entries.add(ModBlocks.CARMINE_ROSE_QUARTZ_SPIRE);
-                        entries.add(ModBlocks.PALE_ROSE_QUARTZ_SPIRE);
+                        entries.add(ModBlocks.RAW_ROSE_QUARTZ_BLOCK);
                         entries.add(ModBlocks.POLISHED_ROSE_QUARTZ_BLOCK);
-                        entries.add(ModBlocks.POLISHED_CARMINE_ROSE_QUARTZ_BLOCK);
-                        entries.add(ModBlocks.POLISHED_PALE_ROSE_QUARTZ_BLOCK);
+                        entries.add(ModBlocks.POLISHED_ROSE_QUARTZ_STAIRS);
+                        entries.add(ModBlocks.POLISHED_ROSE_QUARTZ_SLAB);
                         entries.add(ModBlocks.ROSE_QUARTZ_BRICKS);
+
+                        entries.add(ModItems.RAW_CARMINE_ROSE_QUARTZ);
+                        entries.add(ModItems.POLISHED_CARMINE_ROSE_QUARTZ);
+                        entries.add(ModBlocks.CARMINE_ROSE_QUARTZ_SPIRE);
+                        entries.add(ModBlocks.RAW_CARMINE_ROSE_QUARTZ_BLOCK);
+                        entries.add(ModBlocks.POLISHED_CARMINE_ROSE_QUARTZ_BLOCK);
+                        entries.add(ModBlocks.POLISHED_CARMINE_ROSE_QUARTZ_STAIRS);
+                        entries.add(ModBlocks.POLISHED_CARMINE_ROSE_QUARTZ_SLAB);
                         entries.add(ModBlocks.CARMINE_ROSE_QUARTZ_BRICKS);
+
+                        entries.add(ModItems.RAW_PALE_ROSE_QUARTZ);
+                        entries.add(ModItems.POLISHED_PALE_ROSE_QUARTZ);
+                        entries.add(ModBlocks.PALE_ROSE_QUARTZ_SPIRE);
+                        entries.add(ModBlocks.RAW_PALE_ROSE_QUARTZ_BLOCK);
+                        entries.add(ModBlocks.POLISHED_PALE_ROSE_QUARTZ_BLOCK);
+                        entries.add(ModBlocks.POLISHED_PALE_ROSE_QUARTZ_STAIRS);
+                        entries.add(ModBlocks.POLISHED_PALE_ROSE_QUARTZ_SLAB);
                         entries.add(ModBlocks.PALE_ROSE_QUARTZ_BRICKS);
+
                         entries.add(ModBlocks.TRAVERTINE);
 
                     }).build());
