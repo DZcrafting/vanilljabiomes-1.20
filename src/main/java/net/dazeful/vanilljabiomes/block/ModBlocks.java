@@ -1,6 +1,7 @@
 package net.dazeful.vanilljabiomes.block;
 
 import net.dazeful.vanilljabiomes.Vanilljabiomes;
+import net.dazeful.vanilljabiomes.world.tree.CharredSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -56,6 +57,30 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copyOf(ModBlocks.ROSE_QUARTZ_BRICKS).mapColor(MapColor.PINK)));
     public static final Block PALE_ROSE_QUARTZ_SPIRE = registerBlock("pale_rose_quartz_spire",
             new CrystalSpireBlock((AbstractBlock.Settings.copy(ModBlocks.ROSE_QUARTZ_SPIRE).mapColor(MapColor.PINK).luminance(state -> 7))));
+
+
+
+    //Charred Wood Blocks
+    public static final Block CHARRED_LOG = registerBlock("charred_log",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.MANGROVE_LOG).strength(2f).mapColor(MapColor.BLACK).sounds(BlockSoundGroup.CHERRY_WOOD)));
+    public static final Block CHARRED_WOOD = registerBlock("charred_wood",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.MANGROVE_WOOD).strength(2f).mapColor(MapColor.BLACK).sounds(BlockSoundGroup.CHERRY_WOOD)));
+    public static final Block STRIPPED_CHARRED_LOG = registerBlock("stripped_charred_log",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_MANGROVE_LOG).strength(2f).mapColor(MapColor.BLACK).sounds(BlockSoundGroup.CHERRY_WOOD)));
+    public static final Block STRIPPED_CHARRED_WOOD = registerBlock("stripped_charred_wood",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_MANGROVE_WOOD).strength(2f).mapColor(MapColor.BLACK).sounds(BlockSoundGroup.CHERRY_WOOD)));
+
+    public static final Block CHARRED_PLANKS = registerBlock("charred_planks",
+            new Block(FabricBlockSettings.copyOf(Blocks.MANGROVE_PLANKS).strength(2f).mapColor(MapColor.BLACK).sounds(BlockSoundGroup.CHERRY_WOOD)));
+    public static final Block CHARRED_LEAVES = registerBlock("charred_leaves",
+            new LeavesBlock(FabricBlockSettings.copyOf(Blocks.MANGROVE_LEAVES).strength(0.5f).mapColor(MapColor.BLACK).sounds(BlockSoundGroup.CHERRY_LEAVES).luminance(state -> 9)));
+    public static final Block CHARRED_SAPLING = registerBlock("charred_sapling",
+            new SaplingBlock(new CharredSaplingGenerator(), FabricBlockSettings.copyOf(Blocks.CHERRY_SAPLING).strength(1f).mapColor(MapColor.BLACK).sounds(BlockSoundGroup.CHERRY_SAPLING)));
+
+
+
+
+
 
     //New Enviorment Blocks
     public static final Block TRAVERTINE = registerBlock("travertine",

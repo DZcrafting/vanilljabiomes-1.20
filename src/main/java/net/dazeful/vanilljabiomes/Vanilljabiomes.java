@@ -3,6 +3,8 @@ package net.dazeful.vanilljabiomes;
 import net.dazeful.vanilljabiomes.block.ModBlocks;
 import net.dazeful.vanilljabiomes.item.ModItemGroups;
 import net.dazeful.vanilljabiomes.item.ModItems;
+import net.dazeful.vanilljabiomes.util.ModRegistries;
+import net.dazeful.vanilljabiomes.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -18,5 +20,7 @@ public class Vanilljabiomes implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModItemGroups.registerItemGroups();
+		ModRegistries.registerModStuffs();
+		ModWorldGeneration.generateModWorldGeneration();
 	}
 }

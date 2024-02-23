@@ -24,6 +24,13 @@
   "block.vanilljabiomes.polished_pale_rose_quartz_stairs": "Polished Pale Rose Quartz Stairs",
   "block.vanilljabiomes.polished_pale_rose_quartz_slab": "Polished Pale Rose Quartz Slab",
   "block.vanilljabiomes.travertine": "Travertine",
+  "block.vanilljabiomes.charred_log": "Charred Log",
+  "block.vanilljabiomes.charred_wood": "Charred Wood",
+  "block.vanilljabiomes.stripped_charred_log": "Stripped Charred Log",
+  "block.vanilljabiomes.stripped_charred_wood": "Stripped Charred Wood",
+  "block.vanilljabiomes.charred_planks": "Charred Planks",
+  "block.vanilljabiomes.charred_leaves": "Charred Leaves",
+  "block.vanilljabiomes.charred_sapling": "Charred Sapling",
 
   "itemgroup.vanillja_item_group": "Vanillja Biomes"
 }

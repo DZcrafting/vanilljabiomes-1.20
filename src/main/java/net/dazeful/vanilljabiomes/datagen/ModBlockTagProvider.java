@@ -32,6 +32,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL);
 
+        getOrCreateTagBuilder(BlockTags.LOGS)
+                .add(ModBlocks.CHARRED_LOG)
+                .add(ModBlocks.STRIPPED_CHARRED_LOG)
+                .add(ModBlocks.CHARRED_WOOD)
+                .add(ModBlocks.STRIPPED_CHARRED_WOOD);
+
 
     }
 }

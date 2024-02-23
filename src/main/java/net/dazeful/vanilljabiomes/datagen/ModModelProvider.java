@@ -57,6 +57,12 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSingleton(ModBlocks.TRAVERTINE, TexturedModel.CUBE_BOTTOM_TOP);
 
+        blockStateModelGenerator.registerLog(ModBlocks.CHARRED_LOG).log(ModBlocks.CHARRED_LOG).wood(ModBlocks.CHARRED_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_CHARRED_WOOD).log(ModBlocks.STRIPPED_CHARRED_LOG).wood(ModBlocks.STRIPPED_CHARRED_WOOD);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CHARRED_PLANKS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CHARRED_LEAVES);
+        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.CHARRED_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+
 
 
 
