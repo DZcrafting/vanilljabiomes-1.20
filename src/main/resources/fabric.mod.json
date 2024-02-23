@@ -22,7 +22,9 @@
 			"net.dazeful.vanilljabiomes.VanilljabiomesClient"
 		],
 		"fabric-datagen": [
-			"net.dazeful.vanilljabiomes.VanilljabiomesDataGenerator"
+			"net.dazeful.vanilljabiomes.VanilljabiomesDataGenerator"],
+		"terrablender": [
+			"net.dazeful.vanilljabiomes.world.biome.ModTerraBlenderAPI"
 		]
 	},
 	"mixins": [
