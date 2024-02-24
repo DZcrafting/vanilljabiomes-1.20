@@ -24,7 +24,7 @@
 		"fabric-datagen": [
 			"net.dazeful.vanilljabiomes.VanilljabiomesDataGenerator"
 		],
-		"client": [
+		"terrablender": [
 			"net.dazeful.vanilljabiomes.world.biome.ModTerraBlenderAPI"
 		]
 	},

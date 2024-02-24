@@ -40,19 +40,16 @@ public class ModBiomes {
     public static Biome roseSpireCavern(Registerable<Biome> context) {
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
 
-        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WOLF, 5, 4, 4));
+        spawnBuilder.spawn(SpawnGroup.UNDERGROUND_WATER_CREATURE, new SpawnSettings.SpawnEntry(EntityType.TROPICAL_FISH, 5, 4, 4));
 
         DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
 
         GenerationSettings.LookupBackedBuilder biomeBuilder =
                 new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE),
                         context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
 
         globalOverworldGeneration(biomeBuilder);
-        DefaultBiomeFeatures.addMossyRocks(biomeBuilder);
         DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
-        DefaultBiomeFeatures.addExtraGoldOre(biomeBuilder);
 
         biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.TREES_PLAINS);
         DefaultBiomeFeatures.addForestFlowers(biomeBuilder);
@@ -71,11 +68,11 @@ public class ModBiomes {
                 .spawnSettings(spawnBuilder.build())
                 .effects((new BiomeEffects.Builder())
                         .waterColor(16762587)
-                        .waterFogColor(12143464)
-                        .skyColor(0x30c918)
-                        .grassColor(0x7f03fc)
-                        .foliageColor(0xd203fc)
-                        .fogColor(0x22a1e6)
+                        .waterFogColor(15360399)
+                        .skyColor(16767975)
+                        .grassColor(5553974)
+                        .foliageColor(3776339)
+                        .fogColor(16762587)
                         .moodSound(BiomeMoodSound.CAVE).build())
                 .build();
     }

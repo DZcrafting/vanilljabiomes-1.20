@@ -19,8 +19,8 @@ public class ModMaterialRules {
 
         return MaterialRules.sequence(
                 MaterialRules.sequence(MaterialRules.condition(MaterialRules.biome(ModBiomes.ROSE_SPIRE_CAVERN),
-                                MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, CARMINE_ROSE_QUARTZ)),
-                        MaterialRules.condition(MaterialRules.STONE_DEPTH_CEILING, PALE_ROSE_QUARTZ)),
+                                MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, SMOOTH_BASALT)),
+                        MaterialRules.condition(MaterialRules.STONE_DEPTH_CEILING, SMOOTH_BASALT)),
 
 
                 // Default to a grass and dirt surface
