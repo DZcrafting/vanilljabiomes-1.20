@@ -3,6 +3,7 @@ package net.dazeful.vanilljabiomes;
 import net.dazeful.vanilljabiomes.datagen.*;
 import net.dazeful.vanilljabiomes.world.ModConfiguredFeatures;
 import net.dazeful.vanilljabiomes.world.ModPlacedFeatures;
+import net.dazeful.vanilljabiomes.world.biome.ModBiomes;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
@@ -26,5 +27,6 @@ public class VanilljabiomesDataGenerator implements DataGeneratorEntrypoint {
 	public void buildRegistry(RegistryBuilder registryBuilder) {
 		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.BIOME, ModBiomes::bootstrap);
 	}
 }
