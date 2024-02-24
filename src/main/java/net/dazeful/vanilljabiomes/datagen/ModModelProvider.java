@@ -8,7 +8,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.enums.Thickness;
 import net.minecraft.data.client.*;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
+
+import java.util.Optional;
 
 public class ModModelProvider extends FabricModelProvider {
 
@@ -79,5 +82,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.POLISHED_ROSE_QUARTZ, Models.GENERATED);
         itemModelGenerator.register(ModItems.POLISHED_CARMINE_ROSE_QUARTZ, Models.GENERATED);
         itemModelGenerator.register(ModItems.POLISHED_PALE_ROSE_QUARTZ, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROSE_BETTA_BUCKET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROSE_BETTA_SPAWN_EGG,
+                new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
     }
 }

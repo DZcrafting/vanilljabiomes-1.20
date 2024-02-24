@@ -45,6 +45,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PALE_ROSE_QUARTZ_BRICKS);
 
                         entries.add(ModBlocks.TRAVERTINE);
+                        entries.add(ModItems.ROSE_BETTA_BUCKET);
+                        entries.add(ModItems.ROSE_BETTA_SPAWN_EGG);
 
                     }).build());
 

@@ -1,6 +1,7 @@
 package net.dazeful.vanilljabiomes;
 
 import net.dazeful.vanilljabiomes.block.ModBlocks;
+import net.dazeful.vanilljabiomes.entity.ModEntities;
 import net.dazeful.vanilljabiomes.item.ModItemGroups;
 import net.dazeful.vanilljabiomes.item.ModItems;
 import net.dazeful.vanilljabiomes.util.ModRegistries;
@@ -22,5 +23,6 @@ public class Vanilljabiomes implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModRegistries.registerModStuffs();
 		ModWorldGeneration.generateModWorldGeneration();
+		ModEntities.registerModEntities();
 	}
 }
