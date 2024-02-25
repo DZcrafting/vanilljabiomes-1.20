@@ -1,6 +1,7 @@
 package net.dazeful.vanilljabiomes.world.biome;
 
 import net.dazeful.vanilljabiomes.Vanilljabiomes;
+import net.dazeful.vanilljabiomes.entity.ModEntities;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registerable;
@@ -40,7 +41,8 @@ public class ModBiomes {
     public static Biome roseSpireCavern(Registerable<Biome> context) {
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
 
-        spawnBuilder.spawn(SpawnGroup.UNDERGROUND_WATER_CREATURE, new SpawnSettings.SpawnEntry(EntityType.TROPICAL_FISH, 5, 4, 4));
+        spawnBuilder.spawn(SpawnGroup.UNDERGROUND_WATER_CREATURE, new SpawnSettings.SpawnEntry(EntityType.TROPICAL_FISH, 0, 4, 4));
+        spawnBuilder.spawn(SpawnGroup.UNDERGROUND_WATER_CREATURE, new SpawnSettings.SpawnEntry(ModEntities.ROSEBETTA, 1, 3,7));
 
         DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
 
@@ -68,11 +70,11 @@ public class ModBiomes {
                 .spawnSettings(spawnBuilder.build())
                 .effects((new BiomeEffects.Builder())
                         .waterColor(16762587)
-                        .waterFogColor(15360399)
-                        .skyColor(16767975)
+                        .waterFogColor(16754890)
+                        .skyColor(6911965)
                         .grassColor(5553974)
                         .foliageColor(3776339)
-                        .fogColor(16762587)
+                        .fogColor(12766463)
                         .moodSound(BiomeMoodSound.CAVE).build())
                 .build();
     }

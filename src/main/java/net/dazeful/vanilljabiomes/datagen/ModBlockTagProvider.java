@@ -28,7 +28,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.ROSE_QUARTZ_SPIRE)
                 .add(ModBlocks.CARMINE_ROSE_QUARTZ_SPIRE)
                 .add(ModBlocks.PALE_ROSE_QUARTZ_SPIRE)
-                .add(ModBlocks.TRAVERTINE);
+                .add(ModBlocks.TRAVERTINE)
+                .add(ModBlocks.QUARTZITE)
+                .add(ModBlocks.DIABASE);
+
+        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+                .add(ModBlocks.SULFUR);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL);
 

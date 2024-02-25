@@ -86,7 +86,11 @@ public class ModBlocks {
     public static final Block TRAVERTINE = registerBlock("travertine",
             new Block(FabricBlockSettings.create().strength(1.0f, 4).sounds(BlockSoundGroup.STONE).requiresTool().mapColor(MapColor.PALE_YELLOW)));
     public static final Block QUARTZITE = registerBlock("quartzite",
-            new Block(FabricBlockSettings.create().strength(3.0f, 6).sounds(BlockSoundGroup.STONE).requiresTool().mapColor(MapColor.DULL_RED)));
+            new Block(FabricBlockSettings.create().strength(2.0f, 4).sounds(BlockSoundGroup.STONE).requiresTool().mapColor(MapColor.DULL_RED)));
+    public static final Block DIABASE = registerBlock("diabase",
+            new Block(FabricBlockSettings.create().strength(2.5f, 5).sounds(BlockSoundGroup.BASALT).requiresTool().mapColor(MapColor.DEEPSLATE_GRAY)));
+    public static final Block SULFUR = registerBlock("sulfur",
+            new Block(FabricBlockSettings.create().strength(0.5f).sounds(BlockSoundGroup.SAND).mapColor(MapColor.YELLOW)));
 
 
 
