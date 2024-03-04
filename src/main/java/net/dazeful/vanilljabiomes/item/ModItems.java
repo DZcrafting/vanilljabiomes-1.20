@@ -26,6 +26,9 @@ public class ModItems {
     public static final Item POLISHED_PALE_ROSE_QUARTZ = registerItem("polished_pale_rose_quartz", new Item(new FabricItemSettings()));
     public static final Item ROSE_BETTA_BUCKET = registerItem("rose_betta_bucket", new EntityBucketItem(ModEntities.ROSEBETTA, Fluids.WATER, SoundEvents.ITEM_BUCKET_EMPTY_FISH, (new Item.Settings()).maxCount(1)));
     public static final Item ROSE_BETTA_SPAWN_EGG = registerItem("rose_betta_spawn_egg", new SpawnEggItem(ModEntities.ROSEBETTA, 0xa86518, 0xa91590, new FabricItemSettings()));
+    public static final Item CRYSTAL_SILK = registerItem("crystal_silk", new Item(new FabricItemSettings()));
+    public static final Item CRYSTAL_WEAVER_THANG = registerItem("crystal_weaver_thang", new Item(new FabricItemSettings()));
+    public static final Item CRYSTAL_WEAVER_PLATE = registerItem("crystal_weaver_plate", new Item(new FabricItemSettings()));
 
 
 

@@ -41,8 +41,8 @@ public class ModBiomes {
     public static Biome roseSpireCavern(Registerable<Biome> context) {
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
 
-        spawnBuilder.spawn(SpawnGroup.UNDERGROUND_WATER_CREATURE, new SpawnSettings.SpawnEntry(EntityType.TROPICAL_FISH, 0, 4, 4));
-        spawnBuilder.spawn(SpawnGroup.UNDERGROUND_WATER_CREATURE, new SpawnSettings.SpawnEntry(ModEntities.ROSEBETTA, 1, 3,7));
+        spawnBuilder.spawn(SpawnGroup.WATER_AMBIENT, new SpawnSettings.SpawnEntry(EntityType.TROPICAL_FISH, 6, 2, 5));
+        spawnBuilder.spawn(SpawnGroup.WATER_AMBIENT, new SpawnSettings.SpawnEntry(ModEntities.ROSEBETTA, 1, 1,1));
 
         DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
 
