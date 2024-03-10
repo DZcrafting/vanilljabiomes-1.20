@@ -44,13 +44,14 @@ public class ModItemGroups {
                         entries.add(ModBlocks.POLISHED_PALE_ROSE_QUARTZ_SLAB);
                         entries.add(ModBlocks.PALE_ROSE_QUARTZ_BRICKS);
 
+                        entries.add(ModBlocks.QUARTZITE);
+                        entries.add(ModBlocks.TRAVERTINE);
                         entries.add(ModItems.ROSE_BETTA_BUCKET);
                         entries.add(ModItems.ROSE_BETTA_SPAWN_EGG);
 
-                        entries.add(ModBlocks.TRAVERTINE);
-                        entries.add(ModBlocks.QUARTZITE);
-                        entries.add(ModBlocks.DIABASE);
-                        entries.add(ModBlocks.SULFUR);
+                        entries.add(ModBlocks.SCHIST);
+                        entries.add(ModBlocks.SULFUR_BLOCK);
+                        entries.add(ModBlocks.SULFUR_VENT);
 
                     }).build());
 

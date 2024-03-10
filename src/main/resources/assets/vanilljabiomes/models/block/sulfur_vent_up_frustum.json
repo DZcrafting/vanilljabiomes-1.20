@@ -1,0 +1,21 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "vanilljabiomes:block/schist",
+		"particle": "vanilljabiomes:block/schist"
+	},
+	"elements": [
+		{
+			"from": [4, 0, 4],
+			"to": [12, 16, 12],
+			"faces": {
+				"north": {"uv": [6, 0, 14, 16], "texture": "#0"},
+				"east": {"uv": [6, 0, 14, 16], "texture": "#0"},
+				"south": {"uv": [6, 0, 14, 16], "texture": "#0"},
+				"west": {"uv": [6, 0, 14, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 12, 12], "texture": "#0"},
+				"down": {"uv": [0, 0, 12, 12], "texture": "#0"}
+			}
+		}
+	]
+}

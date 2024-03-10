@@ -58,10 +58,13 @@ public class ModModelProvider extends FabricModelProvider {
         polished_palerosequartz_pool.stairs(ModBlocks.POLISHED_PALE_ROSE_QUARTZ_STAIRS);
         polished_palerosequartz_pool.slab(ModBlocks.POLISHED_PALE_ROSE_QUARTZ_SLAB);
 
+
         blockStateModelGenerator.registerSingleton(ModBlocks.TRAVERTINE, TexturedModel.CUBE_BOTTOM_TOP);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.QUARTZITE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DIABASE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SULFUR);
+        blockStateModelGenerator.registerSingleton(ModBlocks.SCHIST, TexturedModel.CUBE_BOTTOM_TOP);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SMOOTH_SCHIST);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SULFUR_BLOCK);
+
 
         blockStateModelGenerator.registerLog(ModBlocks.CHARRED_LOG).log(ModBlocks.CHARRED_LOG).wood(ModBlocks.CHARRED_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_CHARRED_WOOD).log(ModBlocks.STRIPPED_CHARRED_LOG).wood(ModBlocks.STRIPPED_CHARRED_WOOD);

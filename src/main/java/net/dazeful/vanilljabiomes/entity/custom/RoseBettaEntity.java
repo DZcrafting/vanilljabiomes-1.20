@@ -29,7 +29,7 @@ public class RoseBettaEntity extends FishEntity {
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(0, new SwimAroundGoal(this, 5.0, 40));
+        this.goalSelector.add(0, new SwimAroundGoal(this, 4.0, 35));
     }
     private void setupAnimationStates() {
         if (this.swimAnimationTimeout <= 0) {

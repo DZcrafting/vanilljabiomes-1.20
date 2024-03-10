@@ -28,8 +28,10 @@
 
   "block.vanilljabiomes.travertine": "Travertine",
   "block.vanilljabiomes.quartzite": "Quartzite",
-  "block.vanilljabiomes.diabase": "Diabase",
-  "block.vanilljabiomes.sulfur": "Sulfur",
+  "block.vanilljabiomes.schist": "Dark Schist",
+  "block.vanilljabiomes.smooth_schist": "Smooth Dark Schist",
+  "block.vanilljabiomes.sulfur_block": "Block of Sulfur",
+  "block.vanilljabiomes.sulfur_vent": "Sulfur Vent",
 
 
 

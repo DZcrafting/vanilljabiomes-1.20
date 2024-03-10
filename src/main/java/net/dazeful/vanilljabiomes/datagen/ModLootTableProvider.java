@@ -37,8 +37,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.POLISHED_PALE_ROSE_QUARTZ_SLAB, slabDrops(ModBlocks.POLISHED_PALE_ROSE_QUARTZ_SLAB));
         addDrop(ModBlocks.TRAVERTINE);
         addDrop(ModBlocks.QUARTZITE);
-        addDrop(ModBlocks.DIABASE);
-        addDrop(ModBlocks.SULFUR);
+        addDrop(ModBlocks.SCHIST);
+        addDrop(ModBlocks.SMOOTH_SCHIST);
+        addDrop(ModBlocks.SULFUR_BLOCK);
+        addDrop(ModBlocks.SULFUR_VENT);
 
 
 

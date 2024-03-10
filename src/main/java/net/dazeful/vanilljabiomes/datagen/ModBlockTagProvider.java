@@ -30,10 +30,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.PALE_ROSE_QUARTZ_SPIRE)
                 .add(ModBlocks.TRAVERTINE)
                 .add(ModBlocks.QUARTZITE)
-                .add(ModBlocks.DIABASE);
+                .add(ModBlocks.SCHIST)
+                .add(ModBlocks.SMOOTH_SCHIST)
+                .add(ModBlocks.SULFUR_VENT)
+                .add(ModBlocks.SULFUR_BLOCK);
 
-        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
-                .add(ModBlocks.SULFUR);
+        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL);
 
