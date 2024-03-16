@@ -30,6 +30,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_CARMINE_ROSE_QUARTZ_SLAB, Ingredient.ofItems(ModBlocks.POLISHED_CARMINE_ROSE_QUARTZ_BLOCK));
         createStairsRecipe(ModBlocks.POLISHED_PALE_ROSE_QUARTZ_STAIRS, Ingredient.ofItems(ModBlocks.POLISHED_PALE_ROSE_QUARTZ_BLOCK));
         createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_PALE_ROSE_QUARTZ_SLAB, Ingredient.ofItems(ModBlocks.POLISHED_PALE_ROSE_QUARTZ_BLOCK));
+        offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_SCHIST, ModBlocks.SCHIST);
+        offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SCHIST_BRICKS, ModBlocks.POLISHED_SCHIST);
+        offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SMALL_SCHIST_BRICKS, ModBlocks.SCHIST_BRICKS);
 
         offerSmelting(exporter, List.of(ModItems.RAW_ROSE_QUARTZ), RecipeCategory.MISC, ModItems.POLISHED_ROSE_QUARTZ, 0.7f, 200, "polishedrosequartz_result");
         offerSmelting(exporter, List.of(ModItems.RAW_CARMINE_ROSE_QUARTZ), RecipeCategory.MISC, ModItems.POLISHED_CARMINE_ROSE_QUARTZ, 0.7f, 200, "polishedrosequartz_result");
@@ -38,6 +41,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerBlasting(exporter, List.of(ModItems.RAW_ROSE_QUARTZ), RecipeCategory.MISC, ModItems.POLISHED_ROSE_QUARTZ, 0.7f, 100, "polishedrosequartz_result");
         offerBlasting(exporter, List.of(ModItems.RAW_CARMINE_ROSE_QUARTZ), RecipeCategory.MISC, ModItems.POLISHED_CARMINE_ROSE_QUARTZ, 0.7f, 100, "polishedrosequartz_result");
         offerBlasting(exporter, List.of(ModItems.RAW_PALE_ROSE_QUARTZ), RecipeCategory.MISC, ModItems.POLISHED_PALE_ROSE_QUARTZ, 0.7f, 100, "polishedrosequartz_result");
+
+        offerSmelting(exporter, List.of(ModBlocks.SCHIST), RecipeCategory.BUILDING_BLOCKS, ModBlocks.SMOOTH_SCHIST, 0.0f, 100, "smooth_schist_result");
 
     }
 }

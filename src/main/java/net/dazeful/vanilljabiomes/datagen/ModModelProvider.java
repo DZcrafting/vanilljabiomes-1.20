@@ -63,7 +63,11 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.QUARTZITE);
         blockStateModelGenerator.registerSingleton(ModBlocks.SCHIST, TexturedModel.CUBE_BOTTOM_TOP);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SMOOTH_SCHIST);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.POLISHED_SCHIST);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SCHIST_BRICKS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SMALL_SCHIST_BRICKS);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SULFUR_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CINDER_SOIL);
 
 
         blockStateModelGenerator.registerLog(ModBlocks.CHARRED_LOG).log(ModBlocks.CHARRED_LOG).wood(ModBlocks.CHARRED_WOOD);
@@ -89,6 +93,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.POLISHED_CARMINE_ROSE_QUARTZ, Models.GENERATED);
         itemModelGenerator.register(ModItems.POLISHED_PALE_ROSE_QUARTZ, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROSE_BETTA_BUCKET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SULFUR, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROSE_BETTA_SPAWN_EGG,
                 new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
     }

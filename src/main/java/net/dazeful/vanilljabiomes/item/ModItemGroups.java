@@ -50,7 +50,13 @@ public class ModItemGroups {
                         entries.add(ModItems.ROSE_BETTA_SPAWN_EGG);
 
                         entries.add(ModBlocks.SCHIST);
+                        entries.add(ModBlocks.SMOOTH_SCHIST);
+                        entries.add(ModBlocks.POLISHED_SCHIST);
+                        entries.add(ModBlocks.SCHIST_BRICKS);
+                        entries.add(ModBlocks.SMALL_SCHIST_BRICKS);
                         entries.add(ModBlocks.SULFUR_BLOCK);
+                        entries.add(ModItems.SULFUR);
+                        entries.add(ModBlocks.CINDER_SOIL);
                         entries.add(ModBlocks.SULFUR_VENT);
 
                     }).build());

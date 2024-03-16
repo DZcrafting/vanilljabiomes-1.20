@@ -28,9 +28,14 @@
 
   "block.vanilljabiomes.travertine": "Travertine",
   "block.vanilljabiomes.quartzite": "Quartzite",
+  "block.vanilljabiomes.cinder_soil": "Cinder Soil",
   "block.vanilljabiomes.schist": "Dark Schist",
   "block.vanilljabiomes.smooth_schist": "Smooth Dark Schist",
+  "block.vanilljabiomes.polished_schist": "Polished Dark Schist",
+  "block.vanilljabiomes.schist_bricks": "Dark Schist Bricks",
+  "block.vanilljabiomes.small_schist_bricks": "Small Dark Schist Bricks",
   "block.vanilljabiomes.sulfur_block": "Block of Sulfur",
+  "item.vanilljabiomes.sulfur": "Sulfur",
   "block.vanilljabiomes.sulfur_vent": "Sulfur Vent",
 
 

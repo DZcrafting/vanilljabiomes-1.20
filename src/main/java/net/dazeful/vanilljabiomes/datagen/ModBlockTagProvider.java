@@ -32,10 +32,14 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.QUARTZITE)
                 .add(ModBlocks.SCHIST)
                 .add(ModBlocks.SMOOTH_SCHIST)
+                .add(ModBlocks.POLISHED_SCHIST)
+                .add(ModBlocks.SCHIST_BRICKS)
+                .add(ModBlocks.SMALL_SCHIST_BRICKS)
                 .add(ModBlocks.SULFUR_VENT)
                 .add(ModBlocks.SULFUR_BLOCK);
 
-        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE);
+        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+                .add(ModBlocks.CINDER_SOIL);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL);
 

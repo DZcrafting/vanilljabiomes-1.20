@@ -87,15 +87,24 @@ public class ModBlocks {
             new Block(FabricBlockSettings.create().strength(1.0f, 4).sounds(BlockSoundGroup.STONE).requiresTool().mapColor(MapColor.PALE_YELLOW)));
     public static final Block QUARTZITE = registerBlock("quartzite",
             new Block(FabricBlockSettings.create().strength(2.0f, 4).sounds(BlockSoundGroup.STONE).requiresTool().mapColor(MapColor.DULL_RED)));
+    public static final Block CINDER_SOIL = registerBlock("cinder_soil",
+            new Block(FabricBlockSettings.copyOf(Blocks.COARSE_DIRT).mapColor(MapColor.BLACK)));
     public static final Block SCHIST = registerBlock("schist",
             new Block(FabricBlockSettings.create().strength(2.5f, 5).sounds(BlockSoundGroup.BASALT).requiresTool().mapColor(MapColor.DEEPSLATE_GRAY)));
     public static final Block SMOOTH_SCHIST = registerBlock("smooth_schist",
+            new Block(FabricBlockSettings.copyOf(ModBlocks.SCHIST)));
+    public static final Block POLISHED_SCHIST = registerBlock("polished_schist",
+            new Block(FabricBlockSettings.copyOf(ModBlocks.SCHIST)));
+    public static final Block SCHIST_BRICKS = registerBlock("schist_bricks",
+            new Block(FabricBlockSettings.copyOf(ModBlocks.SCHIST)));
+    public static final Block SMALL_SCHIST_BRICKS = registerBlock("small_schist_bricks",
             new Block(FabricBlockSettings.copyOf(ModBlocks.SCHIST)));
     public static final Block SULFUR_BLOCK = registerBlock("sulfur_block",
             new Block(FabricBlockSettings.create().strength(0.5f).sounds(BlockSoundGroup.AMETHYST_BLOCK).mapColor(MapColor.YELLOW).luminance(state -> 5)));
     public static final Block SULFUR_VENT = registerBlock("sulfur_vent",
             new SulfurVentBlock((AbstractBlock.Settings.create().mapColor(MapColor.DEEPSLATE_GRAY).solid().instrument(Instrument.BASEDRUM)
                     .nonOpaque().sounds(BlockSoundGroup.BASALT).ticksRandomly().strength(2.5f, 5).dynamicBounds().offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never))));
+
 
 
 
