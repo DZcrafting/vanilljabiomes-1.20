@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.Instrument;
 import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -104,6 +105,13 @@ public class ModBlocks {
     public static final Block SULFUR_VENT = registerBlock("sulfur_vent",
             new SulfurVentBlock((AbstractBlock.Settings.create().mapColor(MapColor.DEEPSLATE_GRAY).solid().instrument(Instrument.BASEDRUM)
                     .nonOpaque().sounds(BlockSoundGroup.BASALT).ticksRandomly().strength(2.5f, 5).dynamicBounds().offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never))));
+    public static final Block SULFUR_SHROOM = registerBlock("sulfur_shroom",
+            new FlowerBlock(StatusEffects.HASTE, 20, FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM).nonOpaque().noCollision()));
+    public static final Block POTTED_SULFUR_SHROOM = Registry.register(Registries.BLOCK, new Identifier(Vanilljabiomes.MOD_ID, "potted_sulfur_shroom"),
+            new FlowerPotBlock(SULFUR_SHROOM, FabricBlockSettings.copyOf(Blocks.POTTED_RED_MUSHROOM). nonOpaque()));
+    public static final Block CORAL_POLYPS = registerBlock("coral_polyps",
+            new FernBlock(AbstractBlock.Settings.create().mapColor(MapColor.PALE_YELLOW).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.SLIME).offset(AbstractBlock.OffsetType.XYZ).burnable().pistonBehavior(PistonBehavior.DESTROY)));
+
 
 
 

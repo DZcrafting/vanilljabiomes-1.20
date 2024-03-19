@@ -56,6 +56,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.SMALL_SCHIST_BRICKS);
                         entries.add(ModBlocks.SULFUR_BLOCK);
                         entries.add(ModItems.SULFUR);
+                        entries.add(ModBlocks.SULFUR_SHROOM);
                         entries.add(ModBlocks.CINDER_SOIL);
                         entries.add(ModBlocks.SULFUR_VENT);
 

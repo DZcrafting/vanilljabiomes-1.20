@@ -70,6 +70,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CINDER_SOIL);
 
 
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.SULFUR_SHROOM, ModBlocks.POTTED_SULFUR_SHROOM, BlockStateModelGenerator.TintType.NOT_TINTED);
+
         blockStateModelGenerator.registerLog(ModBlocks.CHARRED_LOG).log(ModBlocks.CHARRED_LOG).wood(ModBlocks.CHARRED_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_CHARRED_WOOD).log(ModBlocks.STRIPPED_CHARRED_LOG).wood(ModBlocks.STRIPPED_CHARRED_WOOD);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CHARRED_PLANKS);

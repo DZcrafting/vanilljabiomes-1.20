@@ -17,6 +17,8 @@ public class VanilljabiomesClient implements ClientModInitializer {
     { BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ROSE_QUARTZ_SPIRE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CARMINE_ROSE_QUARTZ_SPIRE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PALE_ROSE_QUARTZ_SPIRE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SULFUR_SHROOM, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_SULFUR_SHROOM, RenderLayer.getCutout());
 
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.ROSE_BETTA, RoseBettaModel::getTexturedModelData);
 

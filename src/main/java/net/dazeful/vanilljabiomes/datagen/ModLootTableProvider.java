@@ -45,6 +45,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.SULFUR_BLOCK);
         addDrop(ModBlocks.CINDER_SOIL);
         addDrop(ModBlocks.SULFUR_VENT);
+        addDrop(ModBlocks.SULFUR_SHROOM);
+        addPottedPlantDrops(ModBlocks.POTTED_SULFUR_SHROOM);
 
 
 
